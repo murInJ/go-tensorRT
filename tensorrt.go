@@ -1,8 +1,8 @@
-package internal
+package go_tensorRT
 
 /*
 #cgo LDFLAGS: -L. -lTensorRT
-#include "tensorRT.h"
+#include "tensorRT_go.h"
 */
 import "C"
 import "fmt"
@@ -257,70 +257,3 @@ func (ctx *TensorrtContext) Infer(input *Tensor) *Tensor {
 	outTensor := cTensorToTensor(output)
 	return outTensor
 }
-
-//func main() {
-//	// onnxFilePath := "../myresnet18.onnx"
-//	engineFilePath := "../../../models/tensorrt/resnet18.engine"
-//	// Example usage
-//	// Initialize TensorRT context
-//	ctx := InitTensorrtContext()
-//	// Load ONNX model
-//	ctx.AddDynamicInput("input.1", []int{1, 3, 224, 224}, []int{64, 3, 224, 224}, []int{64, 3, 224, 224}, 4)
-//
-//	// status := ctx.LoadOnnxModel(onnxFilePath)
-//	// if status == 0 {
-//	//     fmt.Println("Failed to load ONNX model")
-//	//     return
-//	// }
-//	// Convert ONNX to TensorRT
-//	// ctx.ONNX2TensorRT(onnxFilePath, engineFilePath)
-//
-//	// Load engine model
-//	status := ctx.LoadEngineModel(engineFilePath)
-//	if status == 0 {
-//		fmt.Println("Failed to load engine model")
-//		return
-//	}
-//	fmt.Println(status)
-//
-//	// 创建一个大小为 2x3x64x64 的输入数据
-//	inputRows := 224
-//	inputCols := 224
-//	inputChannels := 3
-//	batchSize := 2
-//
-//	// 创建一个大小为 2 的批次
-//	inputData := make([][][][]float32, batchSize)
-//
-//	// 填充输入数据
-//	for b := 0; b < batchSize; b++ {
-//		inputData[b] = make([][][]float32, inputChannels)
-//		for i := 0; i < inputChannels; i++ {
-//			inputData[b][i] = make([][]float32, inputRows)
-//			for j := 0; j < inputRows; j++ {
-//				inputData[b][i][j] = make([]float32, inputCols)
-//				for c := 0; c < inputCols; c++ {
-//					// 填充随机数据，这里只是示例，你可以使用实际的数据
-//					inputData[b][i][j][c] = float32(1)
-//				}
-//			}
-//		}
-//	}
-//	fmt.Println(6)
-//	ok, inputTensor := ArrayToTensor(inputData)
-//	if ok {
-//		fmt.Println(7)
-//	} else {
-//		fmt.Println(inputTensor)
-//	}
-//	// Perform inference
-//
-//	// fmt.Println("go tensor value(in):")
-//	// fmt.Println("dims:",inputTensor._dims)
-//	// fmt.Println("type:",inputTensor._type)
-//
-//	output := ctx.Infer(inputTensor)
-//	fmt.Println("Inference output:", &output)
-//
-//	fmt.Println(output.GetData())
-//}

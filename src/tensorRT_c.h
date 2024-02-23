@@ -1,7 +1,7 @@
 #ifndef INFERENCE_WRAPPER_H
 #define INFERENCE_WRAPPER_H
 #include <stdlib.h>
-
+#include "CTensorRT.h"
 typedef struct TensorrtContext{
     void* tensorRT;
     int numDims;

@@ -1,5 +1,3 @@
-#include "CTensorRT.h"
-// #include "tensorRT.h"
 #include "tensorRT_c.h"
 cv::Mat* tensorToMat(const Tensor* tensor) {
     if (tensor == nullptr) {
