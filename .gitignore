@@ -1,10 +1,8 @@
 /.vscode/*
 /models/*
-/internal/tensorRT/src/tensorrt.o
-/internal/tensorRT/src/test
-/internal/tensorRT/src/test.sh
-/internal/tensorRT/src/Makefile
-/internal/tensorRT/src/CMakeCache.txt
-/internal/tensorRT/src/cmake_install.cmake
-/internal/tensorRT/src/CMakeFiles/*
+src/tensorrt.o
+src/Makefile
+src/CMakeCache.txt
+src/cmake_install.cmake
+src/CMakeFiles/*
 .idea/
